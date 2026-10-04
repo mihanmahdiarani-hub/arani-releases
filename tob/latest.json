@@ -1,6 +1,6 @@
 {
-  "versionCode": 6,
-  "versionName": "0.3.3",
-  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.3.3/TOB-0.3.3.apk",
-  "notes": "TOB 0.3.3: نسخه با امضای پایدار برای آپدیت‌های بعدی و رفع خطای Google Flow/Veo durationSeconds. برای عبور از نسخه‌های قدیمیِ debug فقط این بار لازم است TOB قبلی را حذف و 0.3.3 را نصب کنید."
+  "versionCode": 7,
+  "versionName": "0.3.4",
+  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.3.4/TOB-0.3.4.apk",
+  "notes": "TOB 0.3.4: اگر Gemini 3.8 خطاهای موقت 429/5xx بدهد، TOB تا 3 بار خودکار Retry می‌کند و سپس بدون دخالت شما روی Gemini 3.7 Flash ادامه می‌دهد."
 }
