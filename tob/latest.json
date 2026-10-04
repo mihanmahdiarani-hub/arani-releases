@@ -1,6 +1,6 @@
 {
-  "versionCode": 11,
-  "versionName": "0.3.8",
-  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.3.8/TOB-0.3.8.apk",
-  "notes": "TOB 0.3.8: بعد از ساخت و دانلود ویدیو از Google Flow، داخل TOB مرحله 3 را بزن، ویدیو را انتخاب کن و صفحه آپلود YouTube Short مستقیم باز می‌شود. عنوان و توضیحات تولیدشده هم آماده و کپی می‌شوند."
+  "versionCode": 12,
+  "versionName": "0.3.9",
+  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.3.9/TOB-0.3.9.apk",
+  "notes": "TOB 0.3.9: شورای AI مخصوص YouTube Shorts اضافه شد؛ 4 ایجنت مستقل موضوع، Hook/Retention، عنوان/SEO و تصویر را نقد می‌کنند و یک سردبیر نهایی بهترین نسخه را برای Flow و YouTube می‌سازد."
 }
