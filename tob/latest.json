@@ -1,6 +1,6 @@
 {
-  "versionCode": 15,
-  "versionName": "0.4.2",
-  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.4.2/TOB-0.4.2.apk",
-  "notes": "TOB 0.4.2: ویدیوها همیشه بدون دیالوگ/نریشن/Voice-over/Lip-sync ساخته می‌شوند. بخش پیش‌نیازهای اجباری اضافه شد؛ هر قانونی که آنجا بنویسی به ایجنت‌ها و هر کلیپ Flow اعمال می‌شود و نسبت به دستورهای متعارض اولویت دارد."
+  "versionCode": 16,
+  "versionName": "0.4.3",
+  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.4.3/TOB-0.4.3.apk",
+  "notes": "TOB 0.4.3: شکارچی وایرال YouTube اضافه شد؛ Shortsهای Outlier کانال‌های کوچک را با YouTube Data API پیدا می‌کند، Viral DNA را با OpenClaw تحلیل می‌کند و یک موضوع اصیل را برای خط تولید Flow پیشنهاد می‌دهد."
 }
