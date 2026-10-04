@@ -1,6 +1,6 @@
 {
-  "versionCode": 8,
-  "versionName": "0.3.5",
-  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.3.5/TOB-0.3.5.apk",
-  "notes": "TOB 0.3.5: کادر پرامپت مستقیم Flow حذف شد. اگر موضوع بدهی، Gemini اول روی همان موضوع تحقیق و سناریو می‌سازد و Flow/Veo فقط VIDEO_PROMPT نهایی Gemini را دریافت می‌کند."
+  "versionCode": 9,
+  "versionName": "0.3.6",
+  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.3.6/TOB-0.3.6.apk",
+  "notes": "TOB 0.3.6: اگر Gemini 3.8 در دسترس نباشد، برنامه خودکار 3.7 Flash و سپس 3.5 Flash-Lite را امتحان می‌کند و برای خطاهای موقت Retry انجام می‌دهد. موضوع خام مستقیم به Flow/Veo ارسال نمی‌شود."
 }
