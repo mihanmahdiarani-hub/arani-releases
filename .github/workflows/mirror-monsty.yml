@@ -1,0 +1,73 @@
+name: Mirror MonSty Android release
+
+on:
+  push:
+    paths:
+      - '.github/workflows/mirror-monsty.yml'
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout releases repo
+        uses: actions/checkout@v4
+
+      - name: Download and verify latest MonSty release
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p moonstyl
+          curl -fL --retry 5 --retry-delay 3 --connect-timeout 20 \
+            "https://monsty-android-updates.onrender.com/version.json?t=$(date +%s)" \
+            -o /tmp/version.json
+
+          VERSION_NAME="$(jq -r '.versionName' /tmp/version.json)"
+          VERSION_CODE="$(jq -r '.versionCode' /tmp/version.json)"
+          APK_URL="$(jq -r '.apkUrl' /tmp/version.json)"
+          EXPECTED_SHA="$(jq -r '.sha256' /tmp/version.json | tr '[:upper:]' '[:lower:]')"
+
+          test -n "$VERSION_NAME"
+          test "$VERSION_CODE" != "null"
+          test -n "$APK_URL"
+          test -n "$EXPECTED_SHA"
+
+          curl -fL --retry 5 --retry-delay 3 --connect-timeout 20 \
+            "$APK_URL?t=$(date +%s)" \
+            -o /tmp/MonSty-latest.apk
+
+          ACTUAL_SHA="$(sha256sum /tmp/MonSty-latest.apk | awk '{print $1}')"
+          test "$ACTUAL_SHA" = "$EXPECTED_SHA"
+
+          cp /tmp/MonSty-latest.apk moonstyl/MonSty-latest.apk
+          SIZE="$(stat -c%s moonstyl/MonSty-latest.apk)"
+          PUBLIC_APK="https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-latest.apk"
+
+          jq -n \
+            --arg versionName "$VERSION_NAME" \
+            --argjson versionCode "$VERSION_CODE" \
+            --arg apkUrl "$PUBLIC_APK" \
+            --arg sha256 "$ACTUAL_SHA" \
+            --argjson size "$SIZE" \
+            '{versionName:$versionName,versionCode:$versionCode,apkUrl:$apkUrl,sha256:$sha256,mandatory:false,version:$versionName,apk_url:$apkUrl,size:$size,notes:"نسخه جدید مون‌استایل آماده است. بروزرسانی از داخل خود برنامه انجام می‌شود."}' \
+            > moonstyl/latest.json
+
+      - name: Publish mirrored release
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add moonstyl/MonSty-latest.apk moonstyl/latest.json
+          if git diff --cached --quiet; then
+            echo "No release changes."
+            exit 0
+          fi
+          VERSION_NAME="$(jq -r '.versionName' moonstyl/latest.json)"
+          git commit -m "Mirror MonSty ${VERSION_NAME}"
+          git push
