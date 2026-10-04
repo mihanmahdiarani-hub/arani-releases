@@ -71,3 +71,5 @@ jobs:
           VERSION_NAME="$(jq -r '.versionName' moonstyl/latest.json)"
           git commit -m "Mirror MonSty ${VERSION_NAME}"
           git push
+
+# refresh requested for MonSty 2.13.59
