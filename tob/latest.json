@@ -1,6 +1,6 @@
 {
-  "versionCode": 14,
-  "versionName": "0.4.1",
-  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.4.1/TOB-0.4.1.apk",
-  "notes": "TOB 0.4.1: ویدیوهای بالای ۱۰ ثانیه به چند پرامپت مستقل حداکثر ۱۰ ثانیه‌ای برای Flow تقسیم می‌شوند؛ هر بار یک کلیپ کپی می‌شود و صف خودکار به کلیپ بعدی می‌رود."
+  "versionCode": 15,
+  "versionName": "0.4.2",
+  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.4.2/TOB-0.4.2.apk",
+  "notes": "TOB 0.4.2: ویدیوها همیشه بدون دیالوگ/نریشن/Voice-over/Lip-sync ساخته می‌شوند. بخش پیش‌نیازهای اجباری اضافه شد؛ هر قانونی که آنجا بنویسی به ایجنت‌ها و هر کلیپ Flow اعمال می‌شود و نسبت به دستورهای متعارض اولویت دارد."
 }
