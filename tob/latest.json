@@ -1,6 +1,6 @@
 {
-  "versionCode": 12,
-  "versionName": "0.3.9",
-  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.3.9/TOB-0.3.9.apk",
-  "notes": "TOB 0.3.9: شورای AI مخصوص YouTube Shorts اضافه شد؛ 4 ایجنت مستقل موضوع، Hook/Retention، عنوان/SEO و تصویر را نقد می‌کنند و یک سردبیر نهایی بهترین نسخه را برای Flow و YouTube می‌سازد."
+  "versionCode": 13,
+  "versionName": "0.4.0",
+  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.4.0/TOB-0.4.0.apk",
+  "notes": "TOB 0.4.0: موتور اصلی OpenClaw Multi-Agent برای YouTube اضافه شد؛ 5 متخصص مستقل + Director/Judge، Bridge امن LAN، خروجی مستقیم عنوان/توضیحات/VIDEO_PROMPT برای Flow و مسیر آپلود YouTube. شورای Gemini قبلی fallback است."
 }
