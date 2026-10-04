@@ -1,6 +1,6 @@
 {
-  "versionCode": 5,
-  "versionName": "0.3.2",
-  "downloadUrl": "https://drive.google.com/uc?export=download&id=1ZwYUe5Zh9RdQlx8emKjgZorQxGkre9C5",
-  "notes": "TOB 0.3.2: رفع خطای Google Flow/Veo HTTP 400 با ارسال durationSeconds به‌صورت عددی. نسخه جدید برای ساخت ویدیوی 9:16 با Veo 3.1 آماده است."
+  "versionCode": 6,
+  "versionName": "0.3.3",
+  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.3.3/TOB-0.3.3.apk",
+  "notes": "TOB 0.3.3: نسخه با امضای پایدار برای آپدیت‌های بعدی و رفع خطای Google Flow/Veo durationSeconds. برای عبور از نسخه‌های قدیمیِ debug فقط این بار لازم است TOB قبلی را حذف و 0.3.3 را نصب کنید."
 }
