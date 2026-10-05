@@ -1,6 +1,6 @@
 {
-  "versionCode": 17,
-  "versionName": "0.4.4",
-  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.4.4/TOB-0.4.4.apk",
-  "notes": "TOB 0.4.4: بخش تحلیل کانال من اضافه شد؛ با OAuth رایگان YouTube Analytics، آمار واقعی ۲۸ روز اخیر، Watch Time، Average View Duration/Percentage، Share، Subscriber Gain/Loss، عملکرد ویدیوها و Retention ویدیوهای برتر تحلیل می‌شود و نتیجه وارد تصمیم‌های OpenClaw می‌شود."
+  "versionCode": 18,
+  "versionName": "0.4.5",
+  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.4.5/TOB-0.4.5.apk",
+  "notes": "TOB 0.4.5: YouTube Autopilot فقط با گوشی؛ اتصال مستقیم کانال، تحلیل آمار واقعی ۲۸ روزه، شکار وایرال، انتخاب ایده بعدی با شورای AI، پرامپت‌های بدون دیالوگ و کلیپ‌های حداکثر ۱۰ ثانیه برای Flow. ویندوز و OpenClaw در مسیر اصلی لازم نیست."
 }
