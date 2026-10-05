@@ -1,6 +1,6 @@
 {
-  "versionCode": 16,
-  "versionName": "0.4.3",
-  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.4.3/TOB-0.4.3.apk",
-  "notes": "TOB 0.4.3: شکارچی وایرال YouTube اضافه شد؛ Shortsهای Outlier کانال‌های کوچک را با YouTube Data API پیدا می‌کند، Viral DNA را با OpenClaw تحلیل می‌کند و یک موضوع اصیل را برای خط تولید Flow پیشنهاد می‌دهد."
+  "versionCode": 17,
+  "versionName": "0.4.4",
+  "downloadUrl": "https://github.com/mihanmahdiarani-hub/arani-releases/releases/download/tob-v0.4.4/TOB-0.4.4.apk",
+  "notes": "TOB 0.4.4: بخش تحلیل کانال من اضافه شد؛ با OAuth رایگان YouTube Analytics، آمار واقعی ۲۸ روز اخیر، Watch Time، Average View Duration/Percentage، Share، Subscriber Gain/Loss، عملکرد ویدیوها و Retention ویدیوهای برتر تحلیل می‌شود و نتیجه وارد تصمیم‌های OpenClaw می‌شود."
 }
