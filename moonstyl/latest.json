@@ -1,11 +1,11 @@
 {
-  "versionName": "2.13.93",
-  "versionCode": 146,
-  "apkUrl": "https://monsty-web-backup.liara.run/android/MonSty-latest.apk",
-  "sha256": "d05074a41dee5221469fd9159b30364b36f1ef42b0574554e9141ccb757a78bf",
+  "versionName": "2.13.61",
+  "versionCode": 116,
+  "apkUrl": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-latest.apk",
+  "sha256": "3020d3c3785876a930e3c3f735e65479262651e4468579ce204dade386dc36fc",
   "mandatory": false,
-  "version": "2.13.93",
-  "apk_url": "https://monsty-web-backup.liara.run/android/MonSty-latest.apk",
-  "size": 6755839,
+  "version": "2.13.61",
+  "apk_url": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-latest.apk",
+  "size": 6740888,
   "notes": "نسخه جدید مون‌استایل آماده است. بروزرسانی از داخل خود برنامه انجام می‌شود."
 }
