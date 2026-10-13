@@ -7,5 +7,6 @@
   "version": "2.14.0",
   "apk_url": "https://monsty-web-backup.liara.run/android/MonSty-latest.apk",
   "size": 6757775,
-  "notes": "نسخه جدید مون‌استایل آماده است. بروزرسانی از داخل خود برنامه انجام می‌شود."
+  "source": "liara",
+  "notes": "نسخه جدید مون‌استایل آماده است."
 }
