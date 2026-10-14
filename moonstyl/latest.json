@@ -1,11 +1,11 @@
 {
-  "versionName": "2.14.4",
-  "versionCode": 157,
-  "apkUrl": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.4.apk",
-  "sha256": "a663748d9200a7822cb2724215f2dbc2deee1f0b0c15369981b288fb30e35c50",
+  "versionName": "2.14.5",
+  "versionCode": 158,
+  "apkUrl": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.5.apk",
+  "sha256": "140d62bc0a6b925642dba5298e6b9263e46336547b9163aeecb5873fea95fb7b",
   "mandatory": false,
-  "version": "2.14.4",
-  "apk_url": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.4.apk",
-  "size": 6765434,
+  "version": "2.14.5",
+  "apk_url": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.5.apk",
+  "size": 6765594,
   "notes": "نسخه ۲.۱۴.۴ مون‌استایل: تفکیک آزمایشی فروش‌های قدیمی بر اساس رنگ و سایز."
 }
