@@ -37,6 +37,15 @@ jobs:
           test -n "$APK_URL"
           test -n "$EXPECTED_SHA"
 
+          # Never replace a newer published Android release with an older source feed.
+          if [ -f moonstyl/latest.json ]; then
+            CURRENT_VERSION_CODE="$(jq -r '.versionCode // 0' moonstyl/latest.json)"
+            if [[ "$CURRENT_VERSION_CODE" =~ ^[0-9]+$ ]] && (( CURRENT_VERSION_CODE > VERSION_CODE )); then
+              echo "SKIP_DOWNGRADE: published versionCode=$CURRENT_VERSION_CODE, source versionCode=$VERSION_CODE"
+              exit 0
+            fi
+          fi
+
           curl -fL --retry 5 --retry-delay 3 --connect-timeout 20 \
             "$APK_URL?t=$(date +%s)" \
             -o /tmp/MonSty-latest.apk
