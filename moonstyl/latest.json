@@ -1,11 +1,11 @@
 {
-  "versionName": "2.14.60",
-  "versionCode": 213,
-  "apkUrl": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.60.apk",
-  "sha256": "2d784b100c6228b3fa48e47636c37662343050f3d004db30318272bfad36bcbe",
+  "versionName": "2.14.61",
+  "versionCode": 214,
+  "apkUrl": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.61.apk",
+  "sha256": "f0f6b5cfeb4696172e9248c4c462c86d631f9cad1065dd9fbacd74a03eb9a2e3",
   "mandatory": false,
-  "version": "2.14.60",
-  "apk_url": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.60.apk",
-  "size": 6874725,
+  "version": "2.14.61",
+  "apk_url": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.61.apk",
+  "size": 6875385,
   "notes": "نسخه جدید مون‌استایل آماده است."
 }
