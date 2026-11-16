@@ -1,0 +1,29 @@
+name: Probe Cortex EOD bulk
+on:
+  push:
+    branches: [cortex-bourse-apk]
+    paths: ['.github/workflows/probe-cortex-eod.yml']
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe bulk EOD for the actual Tehran session
+        run: |
+          python3 - <<'PY'
+          import requests
+          host='https://cdn.tsetmc.com/api/ClosingPrice/'
+          for url in ['GetClosingPriceDailyAllInst','GetInstrmentsHistoryInDay/20261116','GetMarketWatch?market=0&industrialGroup=&paperTypes%5B0%5D=1&paperTypes%5B1%5D=2&paperTypes%5B2%5D=3&paperTypes%5B3%5D=4&paperTypes%5B4%5D=5&paperTypes%5B5%5D=6&paperTypes%5B6%5D=7&paperTypes%5B7%5D=8&paperTypes%5B8%5D=9&showTraded=true&withBestLimits=false&hEven=0&RefID=0']:
+           try:
+            r=requests.get(host+url,headers={'User-Agent':'Mozilla/5.0'},timeout=55)
+            print('ENDPOINT',url.split('?')[0],'STATUS',r.status_code,'BYTES',len(r.content))
+            j=r.json()
+            print('ROOT',list(j)[:10] if isinstance(j,dict) else 'ARRAY', type(j).__name__)
+            vals=j.values() if isinstance(j,dict) else [j]
+            for v in vals:
+             if isinstance(v,list):
+              print('ROWS',len(v),'KEYS',list(v[0])[:40] if v and isinstance(v[0],dict) else None)
+              print('VALID_VOLUME',sum(1 for x in v if isinstance(x,dict) and (x.get('qTotTran5J') or 0)>0))
+              print('DATE_COUNTS',dict(__import__('collections').Counter(str(x.get('dEven')) for x in v if isinstance(x,dict)).most_common(5)))
+              print('SAMPLE_VALID',next(({k:x.get(k) for k in ('insCode','dEven','pClosing','qTotTran5J','qTotCap','priceFirst','pDrCotVal','lva','yVal')} for x in v if isinstance(x,dict) and (x.get('qTotTran5J') or 0)>0),None))
+           except Exception as e:print('ERROR',repr(e))
+          PY
