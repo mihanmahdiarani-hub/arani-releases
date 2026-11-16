@@ -27,8 +27,6 @@ jobs:
           test -f cortex-android/app/src/main/AndroidManifest.xml
       - name: Verify phase 1 manual-only code and SQLite contracts
         run: cd cortex-android && python3 -m unittest discover -s tests -v
-      - name: Validate real TSETMC session prices and stock flow
-        run: cd cortex-android && python3 test_live.py
       - name: Build
         run: cd cortex-android && gradle --no-daemon assembleDebug
       - name: Verify APK
@@ -41,3 +39,5 @@ jobs:
           name: Cortex-Bourse-Android-beta-APK
           path: cortex-android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
+      - name: Validate real TSETMC session prices and stock flow
+        run: cd cortex-android && python3 test_live.py
