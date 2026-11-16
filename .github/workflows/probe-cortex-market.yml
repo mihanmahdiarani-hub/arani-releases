@@ -1,0 +1,37 @@
+name: Probe Cortex market feed
+on:
+  push:
+    branches: [cortex-bourse-apk]
+    paths: ['.github/workflows/probe-cortex-market.yml']
+  workflow_dispatch:
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect exchange JSON without recording secrets
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import requests,datetime
+          host='https://cdn.tsetmc.com/api'
+          urls=[
+           '/ClosingPrice/GetMarketWatch?market=0&industrialGroup=&paperTypes%5B0%5D=1&paperTypes%5B1%5D=2&paperTypes%5B2%5D=3&paperTypes%5B3%5D=4&paperTypes%5B4%5D=5&paperTypes%5B5%5D=6&paperTypes%5B6%5D=7&paperTypes%5B7%5D=8&paperTypes%5B8%5D=9&showTraded=false&withBestLimits=false&hEven=0&RefID=0',
+           '/ClientType/GetClientTypeAll',
+           '/ClosingPrice/GetClosingPriceInfo/46348559193224090'
+          ]
+          for url in urls:
+           try:
+            r=requests.get(host+url,headers={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0 Safari/537.36'},timeout=25)
+            print('URL',url.split('?')[0],'HTTP',r.status_code,'BYTES',len(r.content),'CT',r.headers.get('content-type'))
+            j=r.json()
+            print('TOP_KEYS',list(j.keys())[:12])
+            for key,val in j.items():
+             if isinstance(val,list):
+              print('LIST',key,'LEN',len(val))
+              if val and isinstance(val[0],dict):
+               print('ITEM_KEYS',list(val[0].keys())[:80])
+               print('ITEM_SAMPLE',{k:val[0].get(k) for k in list(val[0].keys())[:22]})
+             elif isinstance(val,dict):
+              print('DICT',key,'KEYS',list(val.keys())[:40], 'DATE',val.get('dEven'))
+           except Exception as e:print('ERROR',repr(e))
+          PY
