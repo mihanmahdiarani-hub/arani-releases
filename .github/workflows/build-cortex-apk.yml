@@ -25,6 +25,8 @@ jobs:
           base64 -d cortex-android-source.b64 > /tmp/cortex-source.zip
           unzip -q /tmp/cortex-source.zip
           test -f cortex-android/app/src/main/AndroidManifest.xml
+      - name: Verify phase 1 manual-only code and SQLite contracts
+        run: cd cortex-android && python3 -m unittest discover -s tests -v
       - name: Validate real TSETMC session prices and stock flow
         run: cd cortex-android && python3 test_live.py
       - name: Build
