@@ -1,0 +1,28 @@
+name: Cortex native specialist API probe
+on:
+  push:
+    branches: [cortex-bourse-apk]
+    paths: ['.github/workflows/cortex-native-specialists-probe.yml']
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - run: |
+          python3 - <<'PY'
+          import requests
+          H='https://cdn.tsetmc.com/api'
+          for path in ['/ClientType/GetClientTypeHistory/46348559193224090/20261116','/Fund/GetETFByInsCode/46348559193224090','/Instrument/GetInstrumentOptionMarketWatch/0','/ClientType/GetClientTypeAll']:
+              try:
+                  r=requests.get(H+path,headers={'User-Agent':'Mozilla/5.0'},timeout=24)
+                  print('ENDPOINT',path,'STATUS',r.status_code,'LENGTH',len(r.content))
+                  j=r.json()
+                  print('TOP_KEYS',list(j) if isinstance(j,dict) else '<array>')
+                  for k,v in (j.items() if isinstance(j,dict) else [('root',j)]):
+                      if isinstance(v,list):
+                          print('LIST',k,len(v),'FIRST_KEYS',list(v[0])[:55] if v and isinstance(v[0],dict) else None)
+                          if v and isinstance(v[0],dict):print('FIRST_VALUES',{x:v[0][x] for x in list(v[0])[:15]})
+                      elif isinstance(v,dict):
+                          print('DICT',k,'KEYS',list(v)[:55],'VALUES',{x:v[x] for x in list(v)[:14]})
+              except Exception as e:print('ERROR',path,type(e).__name__,str(e)[:160])
+          PY
