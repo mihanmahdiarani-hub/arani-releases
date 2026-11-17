@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "iran-bourse": {
+      "command": "uvx",
+      "args": [
+        "iran-bourse-mcp"
+      ]
+    }
+  }
+}
