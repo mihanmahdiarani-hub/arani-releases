@@ -3,6 +3,8 @@
     "iran-bourse": {
       "command": "uvx",
       "args": [
+        "--from",
+        "git+https://github.com/msmahdinejad/iran-bourse-mcp",
         "iran-bourse-mcp"
       ]
     }
