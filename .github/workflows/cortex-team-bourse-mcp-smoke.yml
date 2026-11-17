@@ -1,0 +1,50 @@
+name: Cortex Team Bourse MCP live smoke
+on:
+  push:
+    branches: [cortex-bourse-apk]
+    paths: ['.github/workflows/cortex-team-bourse-mcp-smoke.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Test read-only official Iranian-market MCP
+        shell: bash
+        run: |
+          cat > /tmp/cortex_live_smoke.py <<'PY'
+          import subprocess,json,datetime,os,sys
+          command=['uvx','--from','git+https://github.com/msmahdinejad/iran-bourse-mcp','iran-bourse-mcp']
+          cases=[
+            ('tools',['tools']),
+            ('stocks_money_flow',['call','top_movers','kind=real_inflow','security_type=stock','limit=3','--compact']),
+            ('nav_ayar',['call','etf_nav','symbol=عیار','--compact']),
+            ('nav_kahroba',['call','etf_nav','symbol=کهربا','--compact']),
+            ('nav_gohar',['call','etf_nav','symbol=گوهر','--compact']),
+            ('covered_call_ahram',['call','option_chain','underlying=اهرم','expiry=nearest','option_type=call','limit=5','--compact'])
+          ]
+          results={'collected_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'kind':'read-only MCP smoke; not agent orchestration','results':[]}
+          for name,args in cases:
+            print('TEST_START',name,flush=True)
+            try:
+              p=subprocess.run(command+args,capture_output=True,text=True,timeout=95,env={**os.environ,'IRAN_BOURSE_TIMEOUT':'25'})
+              item={'test':name,'returncode':p.returncode,'stdout_excerpt':p.stdout[:5500],'stderr_excerpt':p.stderr[-1000:]}
+              print('TEST_FINISH',name,'rc',p.returncode,'stdout_chars',len(p.stdout),flush=True)
+            except Exception as e:
+              item={'test':name,'error':str(e)}
+              print('TEST_ERROR',name,str(e),flush=True)
+            results['results'].append(item)
+            with open('cortex-mcp-test-result.json','w',encoding='utf8') as f: json.dump(results,f,ensure_ascii=False,indent=2)
+          print('DONE; success_count',sum(r.get('returncode')==0 for r in results['results']),flush=True)
+          PY
+          python /tmp/cortex_live_smoke.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Cortex-Team-Bourse-MCP-Live-Test
+          path: cortex-mcp-test-result.json
+          retention-days: 14
