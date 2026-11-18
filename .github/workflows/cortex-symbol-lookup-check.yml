@@ -1,0 +1,34 @@
+name: Cortex validate symbol lookup and EOD fallback
+on:
+  push:
+    branches: [cortex-bourse-apk]
+    paths: ['.github/workflows/cortex-symbol-lookup-check.yml']
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: |
+          python3 - <<'PY'
+          import requests,urllib.parse
+          B='https://cdn.tsetmc.com/api'
+          for sym in ['عیار','کهربا','گوهر']:
+           u=B+'/Instrument/GetInstrumentSearch/'+urllib.parse.quote(sym)
+           try:
+            r=requests.get(u,timeout=12,headers={'User-Agent':'Mozilla/5.0'})
+            j=r.json(); rows=j.get('instrumentSearch',[]); exact=[{'sym':x.get('lVal18AFC'),'code':x.get('insCode'),'name':str(x.get('lVal30'))[:50]} for x in rows if str(x.get('lVal18AFC','')).replace('ي','ی').replace('ك','ک').strip()==sym]
+            print('SEARCH',sym,'HTTP',r.status_code,'rows',len(rows),'exact',exact[:5],flush=True)
+            for item in exact[:2]:
+             try:
+              nav=requests.get(B+'/Fund/GetETFByInsCode/'+str(item['code']),timeout=9)
+              print('NAV',sym,item['code'],nav.status_code,'size',len(nav.content),flush=True)
+             except Exception as ex:print('NAV_ERROR',sym,type(ex).__name__,flush=True)
+           except Exception as ex:print('SEARCH_ERROR',sym,type(ex).__name__,flush=True)
+          for date in ['20261118','20261117']:
+           try:
+            u=B+'/ClosingPrice/GetInstrmentsHistoryInDay/'+date
+            r=requests.get(u,timeout=18,headers={'User-Agent':'Mozilla/5.0'})
+            j=r.json(); print('EOD',date,'HTTP',r.status_code,'fields',list(j),'counts',{k:len(v) for k,v in j.items() if isinstance(v,list)},flush=True)
+           except Exception as ex:print('EOD_ERROR',date,type(ex).__name__,str(ex)[:80],flush=True)
+          PY
