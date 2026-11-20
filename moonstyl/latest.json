@@ -1,12 +1,12 @@
 {
-  "versionName": "2.14.91",
-  "versionCode": 239,
-  "apkUrl": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.91.apk",
-  "sha256": "7e32e0e9c6de36621b5d5f631d57093526591f4b4fcc51c89816dae0cdcef9e7",
+  "versionName": "2.14.92",
+  "versionCode": 240,
+  "apkUrl": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.92.apk",
+  "sha256": "9f36373e4ba37712d4b14f36268dc13e45b95628e5eea5587680430140bc2f02",
   "mandatory": false,
-  "version": "2.14.91",
-  "apk_url": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.91.apk",
-  "size": 7396707,
+  "version": "2.14.92",
+  "apk_url": "https://raw.githubusercontent.com/mihanmahdiarani-hub/arani-releases/main/moonstyl/MonSty-Android-v2.14.92.apk",
+  "size": 7397119,
   "source": "github-mirror",
-  "notes": "مون‌استایل 2.14.91؛ رفع خطای ثبت و دانلود خودکار، نصب با تأیید کاربر."
+  "notes": "مون‌استایل 2.14.92؛ بازیابی امن پاسخ ناقص Google Apps Script و ثبت قبلی، نصب با تأیید کاربر."
 }
